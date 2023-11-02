@@ -62,7 +62,7 @@ public class ProductDaoImpl implements ProductDao {
                 product.setProductId(resultSet.getString("PRODUCTID"));
                 product.setName(resultSet.getString("NAME"));
                 product.setDescription(resultSet.getString("description"));
-                product.setCategoryId(resultSet.getString("categoryId"))
+                product.setCategoryId(resultSet.getString("categoryId"));
             }
 
             DBUtil.closeResultSet(resultSet);
