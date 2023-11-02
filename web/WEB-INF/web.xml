@@ -9,8 +9,18 @@
         <servlet-class>csu.web.mypetstore.web.servlet.MainFormServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>CategoryFromServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.CategoryFromServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>MainFormServlet</servlet-name>
         <url-pattern>/mainForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CategoryFromServlet</servlet-name>
+        <url-pattern>/categoryForm</url-pattern>
     </servlet-mapping>
 </web-app>

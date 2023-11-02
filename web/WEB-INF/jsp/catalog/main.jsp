@@ -67,18 +67,19 @@
     <div id="MainImage">
         <div id="MainImageContent">
             <map name="estoremap">
+<%--            <%--这是大鸟--%>
                 <area alt="Birds" coords="72,2,280,250"
-                      href="Catalog.action?viewCategory=&categoryId=BIRDS" shape="RECT" />
+                      href="categoryForm?categoryId=BIRDS" shape="RECT" />
                 <area alt="Fish" coords="2,180,72,250"
-                      href="Catalog.action?viewCategory=&categoryId=FISH" shape="RECT" />
+                      href="" shape="RECT" />
                 <area alt="Dogs" coords="60,250,130,320"
-                      href="Catalog.action?viewCategory=&categoryId=DOGS" shape="RECT" />
+                      href="" shape="RECT" />
                 <area alt="Reptiles" coords="140,270,210,340"
-                      href="Catalog.action?viewCategory=&categoryId=REPTILES" shape="RECT" />
+                      href="" shape="RECT" />
                 <area alt="Cats" coords="225,240,295,310"
-                      href="Catalog.action?viewCategory=&categoryId=CATS" shape="RECT" />
+                      href="" shape="RECT" />
                 <area alt="Birds" coords="280,180,350,250"
-                      href="Catalog.action?viewCategory=&categoryId=BIRDS" shape="RECT" />
+                      href="S" shape="RECT" />
             </map>
             <img height="355" src="images/splash.gif" align="middle"
                  usemap="#estoremap" width="350" />
