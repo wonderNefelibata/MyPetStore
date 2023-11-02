@@ -61,32 +61,6 @@ public class ItemDaoImpl implements ItemDao {
             "UPDATE INVENTORY SET QTY = QTY - ? WHERE ITEMID = ?";
 
     @Override
-    public List<Product> searchProductList(String keywords) {
-        ArrayList<Product> productList = new ArrayList<>();
-        try {
-            Connection connection= DBUtil.getConnection();
-            PreparedStatement preparedStatement=connection.prepareStatement(SEARCH_PRODUCT_LIST);
-            preparedStatement.setString(1,keywords);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
-                Product product = new Product();
-                product.setProductId(resultSet.getString("PRODUCTID"));
-                product.setName(resultSet.getString("NAME"));
-                product.setDescription(resultSet.getString("description"));
-                product.setCategoryId(resultSet.getString("categoryId"));
-                productList.add(product);
-            }
-
-            DBUtil.closeResultSet(resultSet);
-            DBUtil.closeStatement(preparedStatement);
-            DBUtil.closeConnection(connection);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return productList;
-    }
-
-    @Override
     public void updateInventoryQuantity(Map<String, Object> param) {
         int quantity= (int) param.get("quantity");
         String itemId = (String) param.get("itemId");
