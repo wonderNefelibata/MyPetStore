@@ -59,6 +59,16 @@
         <servlet-class>csu.web.mypetstore.web.servlet.SignOnServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>SearchProductServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SearchProductServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ViewProductServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ViewProductServlet</servlet-class>
+    </servlet>
+
 
 
     <servlet-mapping>
@@ -114,5 +124,15 @@
     <servlet-mapping>
         <servlet-name>SignOnServlet</servlet-name>
         <url-pattern>/signOn</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SearchProductServlet</servlet-name>
+        <url-pattern>/searchProducts</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ViewProductServlet</servlet-name>
+        <url-pattern>/viewProduct</url-pattern>
     </servlet-mapping>
 </web-app>

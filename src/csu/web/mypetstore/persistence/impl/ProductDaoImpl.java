@@ -19,6 +19,8 @@ public class ProductDaoImpl implements ProductDao {
     private static final String searchProductListString =
             "SELECT PRODUCTID,NAME,DESCN as description,CATEGORY as categoryId from PRODUCT WHERE lower(name) like ?";
 
+    private static final String SEARCH_PRODUCT_LIST = "SELECT PRODUCTID,NAME,DESCN as description,CATEGORY as categoryId FROM PRODUCT WHERE lower(name) like ?";
+
     @Override
     public List<Product> getProductListByCategory(String categoryId) {
         List<Product> products = new ArrayList<Product>();
@@ -72,29 +74,53 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public List<Product> searchProductList(String keywords) {
-        List<Product> productList = new ArrayList<Product>();
+//        List<Product> productList = new ArrayList<Product>();
+//
+//        try {
+//            Connection connection = DBUtil.getConnection();
+//            PreparedStatement pStatement = connection
+//                    .prepareStatement(searchProductListString);
+//            pStatement.setString(1, keywords);
+//            ResultSet resultSet = pStatement.executeQuery();
+//            while (resultSet.next()) {
+//                Product product = new Product();
+//                product.setProductId(resultSet.getString(1));
+//                product.setName(resultSet.getString(2));
+//                product.setDescription(resultSet.getString(3));
+//                product.setCategoryId(resultSet.getString(4));
+//                productList.add(product);
+//            }
+//            DBUtil.closeResultSet(resultSet);
+//            DBUtil.closePreparedStatement(pStatement);
+//            DBUtil.closeConnection(connection);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        return productList;
 
-        try {
+        List<Product> products= new ArrayList<Product>();
+        try{
             Connection connection = DBUtil.getConnection();
-            PreparedStatement pStatement = connection
-                    .prepareStatement(searchProductListString);
-            pStatement.setString(1, keywords);
-            ResultSet resultSet = pStatement.executeQuery();
-            while (resultSet.next()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_PRODUCT_LIST);
+            preparedStatement.setString(1,keywords);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
                 Product product = new Product();
                 product.setProductId(resultSet.getString(1));
                 product.setName(resultSet.getString(2));
                 product.setDescription(resultSet.getString(3));
                 product.setCategoryId(resultSet.getString(4));
-                productList.add(product);
+                products.add(product);
             }
             DBUtil.closeResultSet(resultSet);
-            DBUtil.closePreparedStatement(pStatement);
+            DBUtil.closePreparedStatement(preparedStatement);
             DBUtil.closeConnection(connection);
-        } catch (Exception e) {
+
+
+        }catch (Exception e){
             e.printStackTrace();
         }
-
-        return productList;
+        return products;
     }
 }
