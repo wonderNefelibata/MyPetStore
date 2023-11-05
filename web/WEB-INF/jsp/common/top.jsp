@@ -21,9 +21,10 @@
         </div>
     </div>
 
+    <%--todo:如果第一次进入页面，直接点击购物车图标会报错，因为没有购物车的对象，这一点需要改进    --%>
     <div id="Menu">
         <div id="MenuContent">
-            <a href=""><img align="middle" name="img_cart" src="images/cart.gif"/></a>
+            <a href="cartForm"><img align="middle" name="img_cart" src="images/cart.gif"/></a>
             <img align="middle" src="images/separator.gif"/>
             <a href="">Sign In</a>
             <a href="">Sign Out</a>
@@ -36,11 +37,7 @@
 
     <div id="Search">
         <div id="SearchContent">
-<%--            <stripes:form--%>
-<%--                beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean">--%>
-<%--            <stripes:text name="keyword" size="14"/>--%>
-<%--            <stripes:submit name="searchProducts" value="Search"/>--%>
-<%--        </stripes:form></div>--%>
+
             <form action="" method="post">
                 <input type="text" name="keyword" size="14">
                 <input type="submit" name="searchProducts" value="Search">
@@ -49,36 +46,6 @@
     </div>
 
     <div id="QuickLinks">
-<%--        <stripes:link>--%>
-<%--            beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"--%>
-<%--            event="viewCategory">--%>
-<%--        <stripes:param name="categoryId" value="FISH"/>--%>
-<%--        <img src="../images/sm_fish.gif"/>--%>
-<%--    </stripes:link> <img src="../images/separator.gif"/> <stripes:link--%>
-
-<%--            beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"--%>
-<%--            event="viewCategory">--%>
-<%--        <stripes:param name="categoryId" value="DOGS"/>--%>
-<%--        <img src="../images/sm_dogs.gif"/>--%>
-<%--    </stripes:link> <img src="../images/separator.gif"/> <stripes:link--%>
-
-<%--            beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"--%>
-<%--            event="viewCategory">--%>
-<%--        <stripes:param name="categoryId" value="REPTILES"/>--%>
-<%--        <img src="../images/sm_reptiles.gif"/>--%>
-<%--    </stripes:link> <img src="../images/separator.gif"/> <stripes:link--%>
-
-<%--            beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"--%>
-<%--            event="viewCategory">--%>
-<%--        <stripes:param name="categoryId" value="CATS"/>--%>
-<%--        <img src="../images/sm_cats.gif"/>--%>
-<%--    </stripes:link> <img src="../images/separator.gif"/> <stripes:link--%>
-
-<%--            beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean"--%>
-<%--            event="viewCategory">--%>
-<%--        <stripes:param name="categoryId" value="BIRDS"/>--%>
-<%--        <img src="../images/sm_birds.gif"/>--%>
-<%--    </stripes:link></div>--%>
 
         <a href="categoryForm?categoryId=FISH"><img src="images/sm_fish.gif"></a>
         <img src="images/separator.gif">
