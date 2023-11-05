@@ -29,7 +29,7 @@
 <%--        </stripes:link></td>--%>
 
         <td>
-          <a href="">${product.productId}</a>
+          <a href="productForm?productId=${product.productId}">${product.productId}</a>
         </td>
         <td>${product.name}</td>
       </tr>
