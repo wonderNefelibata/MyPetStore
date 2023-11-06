@@ -92,7 +92,7 @@ public class ItemDaoImpl implements ItemDao {
             }
             DBUtil.closeResultSet(resultSet);
             DBUtil.closePreparedStatement(pStatement);
-            DBUtil.closeResultSet(resultSet);
+            DBUtil.closeConnection(connection);
         } catch (Exception e) {
             e.printStackTrace();
         }

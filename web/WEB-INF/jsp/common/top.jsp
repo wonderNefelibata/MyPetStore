@@ -35,7 +35,7 @@
                 <a href="signOutForm">Sign Out</a>
                 <img align="middle" src="images/separator.gif" />
 
-                <a href="#"> My Account</a>
+                <a href="editAccountForm"> My Account</a>
                 <img align="middle" src="images/separator.gif" />
             </c:if>
             <a href="help.html">?</a>

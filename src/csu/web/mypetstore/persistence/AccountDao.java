@@ -7,12 +7,11 @@ public interface AccountDao {
 
     Account getAccountByUsernameAndPassword(Account account);
 
-    void insertAccount(String username);
-//    void insertAccount(Account account);???
+    void insertAccount(Account account);
 
-    void insertProfile(String username,String preference);
+    void insertProfile(Account account);
 
-    void insertSignon(String username,String password);
+    void insertSignon(Account account);
 
     void updateAccount(Account account);
 
