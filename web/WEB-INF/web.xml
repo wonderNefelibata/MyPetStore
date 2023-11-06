@@ -84,6 +84,28 @@
         <servlet-class>csu.web.mypetstore.web.servlet.SignOutFormServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>NewOrderServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.NewOrderServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ConfirmOrderFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ConfirmOrderFormServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ListOrdersServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ListOrdersServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ViewOrderServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ViewOrderServlet</servlet-class>
+    </servlet>
+
+
+
     <servlet-mapping>
         <servlet-name>MainFormServlet</servlet-name>
         <url-pattern>/mainForm</url-pattern>
@@ -164,4 +186,23 @@
         <url-pattern>/signOutForm</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>NewOrderServlet</servlet-name>
+        <url-pattern>/newOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ConfirmOrderFormServlet</servlet-name>
+        <url-pattern>/confirmOrderForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ListOrdersServlet</servlet-name>
+        <url-pattern>/listOrders</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ViewOrderServlet</servlet-name>
+        <url-pattern>/viewOrder</url-pattern>
+    </servlet-mapping>
 </web-app>

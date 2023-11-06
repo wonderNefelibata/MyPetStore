@@ -1,10 +1,19 @@
 package csu.web.mypetstore.domain;
 
+import csu.web.mypetstore.persistence.CartDao;
+import csu.web.mypetstore.persistence.impl.CartDaoImpl;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.*;
 
 public class Cart implements Serializable {
+    private CartDao cartDao;
+
+    public Cart(){
+        cartDao=new CartDaoImpl();
+    }
+
     private static final long serialVersionUID = 8329559983943337176L;
     private final Map<String, CartItem> itemMap = Collections.synchronizedMap(new HashMap<String, CartItem>());
     private final List<CartItem> itemList = new ArrayList<CartItem>();
@@ -74,4 +83,15 @@ public class Cart implements Serializable {
         }
         return subTotal;
     }
+
+    public void clear(Cart cart,String workingItemId) {
+        workingItemId = null;
+        itemList.clear();
+        itemMap.clear();
+    }
+
+    public void removeAllCartItemsByUserid(String userid){
+        cartDao.removeAllCartItemsByUserid(userid);
+    }
+
 }

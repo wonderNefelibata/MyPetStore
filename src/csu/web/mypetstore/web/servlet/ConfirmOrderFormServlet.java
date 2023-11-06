@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class ConfirmOrderFormServlet extends HttpServlet {
     private static final String SHIPPING = "/WEB-INF/jsp/order/shippingForm.jsp";
-    private static final String CONFIRM_ORDER = "/WEB-INF/jsp/order/confirmOrder.jsp";
+    private static final String CONFIRM_ORDER = "/WEB-INF/jsp/order/confirmOrderForm.jsp";
     private static final String ERROR = "/WEB-INF/jsp/common/Error.jsp";
     private static final String VIEW_ORDER = "/WEB-INF/jsp/order/ViewOrder.jsp";
 

@@ -14,9 +14,9 @@ import java.io.IOException;
 
 public class NewOrderServlet extends HttpServlet {
     private static final String SHIPPING = "/WEB-INF/jsp/order/shippingForm.jsp";
-    private static final String CONFIRM_ORDER = "/WEB-INF/jsp/order/confirmOrder.jsp";
-    private static final String ERROR = "/WEB-INF/jsp/common/Error.jsp";
-    private static final String VIEW_ORDER = "/WEB-INF/jsp/order/ViewOrder.jsp";
+    private static final String CONFIRM_ORDER = "/WEB-INF/jsp/order/confirmOrderForm.jsp";
+    private static final String ERROR = "/WEB-INF/jsp/common/error.jsp";
+    private static final String VIEW_ORDER = "/WEB-INF/jsp/order/viewOrder.jsp";
 
 
     private Order order;
@@ -26,10 +26,10 @@ public class NewOrderServlet extends HttpServlet {
     private String workingItemId;
 
     public Order getOrder(){
-        return order;
+        return this.order;
     }
     public boolean isConfirmed(){
-        return confirmed;
+        return this.confirmed;
     }
 
     @Override
@@ -54,6 +54,7 @@ public class NewOrderServlet extends HttpServlet {
             shoppingAddressRequired = false;
             request.getRequestDispatcher(SHIPPING).forward(request,response);
         }
+
         else if(!isConfirmed()){
             request.getRequestDispatcher(CONFIRM_ORDER).forward(request,response);
         }
@@ -65,8 +66,8 @@ public class NewOrderServlet extends HttpServlet {
             //清空购物车
             workingItemId = (String) session.getAttribute("workingItemId");
             cart.clear(cart,workingItemId);
-            Account account = (Account)session.getAttribute("account");
-            String userid = account.getUsername();
+            Account loginAccount = (Account)session.getAttribute("loginAccount");
+            String userid = loginAccount.getUsername();
             cart.removeAllCartItemsByUserid(userid);
 
             session.setAttribute("cart",cart);
