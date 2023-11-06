@@ -35,9 +35,10 @@ public class SignOnServlet extends HttpServlet {
             Account loginAccount = accountService.getAccount(username, password);
             if(loginAccount == null){
                 this.msg = "用户名或密码错误";
+                //更改密码后不报错了
                 req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
             }else {
-                loginAccount.setPassword(null);
+                loginAccount.setPassword(null);//啥意思
                 HttpSession session = req.getSession();
                 session.setAttribute("loginAccount" , loginAccount);
 
@@ -46,7 +47,6 @@ public class SignOnServlet extends HttpServlet {
                     List<Product> myList = catalogService.getProductListByCategory(loginAccount.getFavouriteCategoryId());
                     session.setAttribute("myList", myList);
                 }
-
                 resp.sendRedirect("mainForm");
             }
         }

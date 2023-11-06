@@ -69,7 +69,20 @@
         <servlet-class>csu.web.mypetstore.web.servlet.ViewProductServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.RegisterServlet</servlet-class>
+    </servlet>
 
+    <servlet>
+        <servlet-name>RegisterFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.RegisterFormServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SignOutFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SignOutFormServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>MainFormServlet</servlet-name>
@@ -135,4 +148,20 @@
         <servlet-name>ViewProductServlet</servlet-name>
         <url-pattern>/viewProduct</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RegisterFormServlet</servlet-name>
+        <url-pattern>/registerForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SignOutFormServlet</servlet-name>
+        <url-pattern>/signOutForm</url-pattern>
+    </servlet-mapping>
+
 </web-app>
