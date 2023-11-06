@@ -7,6 +7,7 @@ import csu.web.mypetstore.persistence.DBUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class AccountDaoImpl implements AccountDao {
     private static final String GET_ACCOUNT_BY_USERNAME_AND_PASSWORD = "SELECT " +
@@ -22,6 +23,13 @@ public class AccountDaoImpl implements AccountDao {
             "AND SIGNON.USERNAME = ACCOUNT.USERID " +
             "AND PROFILE.USERID = ACCOUNT.USERID " +
             "AND PROFILE.FAVCATEGORY = BANNERDATA.FAVCATEGORY";
+
+    private static final String INSERT_ACCOUNT = """
+                INSERT INTO ACCOUNT
+      (EMAIL, FIRSTNAME, LASTNAME, STATUS, ADDR1, ADDR2, CITY, STATE, ZIP, COUNTRY, PHONE, USERID)
+    VALUES
+      ('a@qq.com', 'a', 'a', 'OK', 'a','a','a','a','a','a', '110',
+            """;
 
     @Override
     public Account getAccountByUsername(String username) {
@@ -72,19 +80,46 @@ public class AccountDaoImpl implements AccountDao {
         return account;
     }
 
-    @Override
-    public void insertAccount(Account account) {
-
+    public void insertAccount(String username){
+        try{
+            Connection connection = DBUtil.getConnection();
+            Statement statement = connection.createStatement();
+            String query = INSERT_ACCOUNT + "'" + username + "')";
+            statement.executeUpdate(query);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void insertProfile(Account account) {
-
+    public void insertProfile(String username,String preference) {
+        try {
+            Connection connection = DBUtil.getConnection();
+            Statement statement = connection.createStatement();
+            String query = """
+            INSERT INTO PROFILE (LANGPREF, FAVCATEGORY, MYLISTOPT, BANNEROPT, USERID)
+             VALUES ('english',
+        """ + "'" + preference + " ','1','1','"  +
+                    username + "')";
+            statement.executeUpdate(query);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void insertSignon(Account account) {
-
+    public void insertSignon(String username,String password) {
+        try {
+            Connection connection = DBUtil.getConnection();
+            Statement statement = connection.createStatement();
+            String query = """
+            INSERT INTO SIGNON (PASSWORD,USERNAME)
+            VALUES (
+        """ + "'" + password + "','"  + username + "')";
+            statement.executeUpdate(query);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
