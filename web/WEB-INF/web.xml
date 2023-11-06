@@ -104,6 +104,11 @@
         <servlet-class>csu.web.mypetstore.web.servlet.ViewOrderServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>ViewItemServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ViewItemServlet</servlet-class>
+    </servlet>
+
 
 
     <servlet-mapping>
@@ -204,5 +209,10 @@
     <servlet-mapping>
         <servlet-name>ViewOrderServlet</servlet-name>
         <url-pattern>/viewOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ViewItemServlet</servlet-name>
+        <url-pattern>/viewItem</url-pattern>
     </servlet-mapping>
 </web-app>

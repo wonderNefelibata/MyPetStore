@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * 这个servlet好像没有用
+ */
 public class ConfirmOrderFormServlet extends HttpServlet {
     private static final String SHIPPING = "/WEB-INF/jsp/order/shippingForm.jsp";
     private static final String CONFIRM_ORDER = "/WEB-INF/jsp/order/confirmOrderForm.jsp";

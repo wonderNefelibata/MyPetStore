@@ -40,18 +40,24 @@ public class NewOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        shoppingAddressRequired = false;
+        confirmed=false;
+
         HttpSession session = request.getSession();
         OrderService orderService = new OrderService();
         order = (Order) session.getAttribute("order");
 
-        if(request.getParameter("shippingAddressRequired") != null)
+        if(request.getParameter("shippingAddressRequired") != null){
             shoppingAddressRequired = true;
+        }
 
-        if(request.getParameter("confirmed")!=null)
+        if(request.getParameter("confirmed")!=null){
             confirmed = (request.getParameter("confirmed").equals("1"));
+        }
+
 
         if(shoppingAddressRequired){
-            shoppingAddressRequired = false;
+//            shoppingAddressRequired = false;
             request.getRequestDispatcher(SHIPPING).forward(request,response);
         }
 

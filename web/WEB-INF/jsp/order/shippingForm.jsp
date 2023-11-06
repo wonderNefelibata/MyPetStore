@@ -7,7 +7,7 @@
   </script>
 </div>
 <div id="Catalog">
-  <form action="confirmOrderForm" method="post">
+  <form action="newOrder" method="post">
     <table>
       <tr>
         <th colspan=2>Shipping Address</th>
