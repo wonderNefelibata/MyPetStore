@@ -28,15 +28,6 @@ public class SearchProductServlet extends HttpServlet {
         session.setAttribute("productList", productlist);
 
         Account account = (Account)session.getAttribute("account");
-//        if(account != null) {
-//            //HttpServletRequest httpRequest= request;
-//            String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
-//                    + req.getContextPath() + req.getServletPath() + "?" + (req.getQueryString());
-//
-//            LogService logService = new LogService();
-//            String logInfo = logService.logInfo(" ") + strBackUrl + " 查找商品" + "  " + productlist;
-//        }     logService.insertLogInfo(account.getUsername(), logInfo);
-
         req.getRequestDispatcher(SEARCH_PRODUCTS).forward(req,resp);
     }
 

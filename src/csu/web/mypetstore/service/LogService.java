@@ -15,11 +15,4 @@ public class LogService {
         }
         logDao.insertLog(username,action,request);
     }
-
-//    public static void main(String[] args) {
-//        LogService logService = new LogService();
-//        logService.insertLog("j2ee",
-//                "1",
-//                        "/wyk/mainForm?null");
-//    }
 }

@@ -23,18 +23,15 @@ public class LogFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         filterChain.doFilter(servletRequest,servletResponse);
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
-//        if("GET".equals(httpRequest.getMethod())){
         HttpSession session = httpRequest.getSession();
         Account account = (Account)session.getAttribute("loginAccount");
         if(account != null){
-//            String action = null;
             String action = getAction(httpRequest.getServletPath(),httpRequest.getQueryString());
             if(action == null) return;
             String request = httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
             String username = account.getUsername();
             logService.insertLog(username,action,request);
         }
-//        }
     }
 
     public void destroy(){
@@ -57,7 +54,7 @@ public class LogFilter implements Filter {
 
     private String getValueAfterEquals(String input){
         int equalsIndex = input.indexOf("=");
-        if(equalsIndex != -1 && equalsIndex < input.length()){
+        if(equalsIndex != -1 && equalsIndex < input.length() - 1){
             return input.substring(equalsIndex+1);
         }else{
             return null;

@@ -18,7 +18,6 @@ public class CatalogService {
     private ItemDao itemDao;
 
     public CatalogService() {
-        //Impl相当于是Dao的继承，这里用一个父类的指针，指向一个子类对象
         this.categoryDao=new CategoryDaoImpl();
         this.productDao=new ProductDaoImpl();
         this.itemDao=new ItemDaoImpl();
@@ -40,7 +39,6 @@ public class CatalogService {
         return productDao.getProductListByCategory(categoryId);
     }
 
-    // TODO enable using more than one keyword
     public List<Product> searchProductList(String keyword) {
         return productDao.searchProductList("%" + keyword.toLowerCase() + "%");
     }

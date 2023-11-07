@@ -7,8 +7,8 @@ import java.io.OutputStream;
 import java.util.Random;
 
 public class Captcha {
-    private final int w = 70;
-    private final int h = 35;
+    private final int w = 60;
+    private final int h = 30;
 
     private final String[] fontNames = {"宋体","微软雅黑"};
 
@@ -31,7 +31,7 @@ public class Captcha {
         int idx = r.nextInt(fontNames.length);
         String fontName = fontNames[idx];
         int style = r.nextInt(4);
-        int size = r.nextInt(5) + 24;
+        int size = r.nextInt(5) + 20;
         return new Font(fontName, style, size);
     }
 
