@@ -17,8 +17,6 @@ public class OrderDaoImpl implements OrderDao {
     private static final String insertOrder= "INSERT INTO ORDERS (ORDERID, USERID, ORDERDATE, SHIPADDR1, SHIPADDR2, SHIPCITY, SHIPSTATE,SHIPZIP, SHIPCOUNTRY, BILLADDR1, BILLADDR2, BILLCITY, BILLSTATE,BILLZIP, BILLCOUNTRY,COURIER, TOTALPRICE, BILLTOFIRSTNAME, BILLTOLASTNAME, SHIPTOFIRSTNAME, SHIPTOLASTNAME,CREDITCARD, EXPRDATE, CARDTYPE, LOCALE) VALUES(?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?,?)";
     private static final String insertOrderStatus= "INSERT INTO ORDERSTATUS (ORDERID, LINENUM, TIMESTAMP, STATUS)  VALUES (?,?, ?, ?)";
 
-
-
     @Override
     public List<Order> getOrdersByUsername(String username) {
         List<Order> list = new ArrayList<Order>();

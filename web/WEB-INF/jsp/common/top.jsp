@@ -10,6 +10,7 @@
     <title>MyPetStore</title>
     <link rel="StyleSheet" href="css/mypetstore.css" type="text/css"
           media="screen" />
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
 </head>
 
 <body>
@@ -21,17 +22,16 @@
         </div>
     </div>
 
-    <%--todo:如果第一次进入页面，直接点击购物车图标会报错，因为没有购物车的对象，这一点需要改进    --%>
     <div id="Menu">
         <div id="MenuContent">
-            <a href="cartForm"><img align="middle" name="img_cart" src="images/cart.gif"/></a>
-            <img align="middle" src="images/separator.gif"/>
             <c:if test="${sessionScope.loginAccount == null}">
                 <a href="signonForm">Sign In</a>
                 <img align="middle" src="images/separator.gif" />
             </c:if>
 
             <c:if test="${sessionScope.loginAccount != null}">
+                <a href="cartForm"><img align="middle" name="img_cart" src="images/cart.gif"/></a>
+                <img align="middle" src="images/separator.gif"/>
                 <a href="signOutForm">Sign Out</a>
                 <img align="middle" src="images/separator.gif" />
 
@@ -53,7 +53,6 @@
     </div>
 
     <div id="QuickLinks">
-
         <a href="categoryForm?categoryId=FISH"><img src="images/sm_fish.gif"></a>
         <img src="images/separator.gif">
         <a href="categoryForm?categoryId=DOGS"><img src="images/sm_dogs.gif"></a>
@@ -68,5 +67,3 @@
 </div>
 
 <div id="Content">
-
-<%--<stripes:messages/>--%>

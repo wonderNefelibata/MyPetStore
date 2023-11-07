@@ -1,4 +1,5 @@
 package csu.web.mypetstore.persistence;
 
-public class LogDao {
+public interface LogDao {
+    void insertLog(String username,String action,String request);
 }

@@ -18,12 +18,13 @@
       </tr>
       <tr>
         <td>Card Number:</td>
-        <td><input type="text" name="order.creditCard" value = "${sessionScope.order.creditCard}"/> * Use a fake
-          number!</td>
+        <td>
+          <input type="text" name="order.creditCard"/>
+        </td>
       </tr>
       <tr>
         <td>Expiry Date (MM/YYYY):</td>
-        <td><input type="text" name="order.expiryDate" value = "${sessionScope.order.expiryDate}"/></td>
+        <td><input type="text" name="order.expiryDate"/></td>
       </tr>
       <tr>
         <th colspan=2>Billing Address</th>
@@ -61,11 +62,10 @@
         <td>Country:</td>
         <td><input type="text" size="15" name="order.billCountry" value="${sessionScope.loginAccount.country}"/></td>
       </tr>
-
-      <tr>
-        <td colspan=2><input type="checkbox" name="shippingAddressRequired" value="true"/>
-          Ship to different address...</td>
-      </tr>
+<%--      <tr>--%>
+<%--        <td colspan=2><input type="checkbox" name="shippingAddressRequired" value="true"/>--%>
+<%--          Ship to different address...</td>--%>
+<%--      </tr>--%>
     </table>
     <input type="submit" name="newOrder" value="Continue"/>
   </form>

@@ -24,5 +24,6 @@
     <orderEntry type="library" name="jsp-api" level="project" />
     <orderEntry type="library" name="servlet-api" level="project" />
     <orderEntry type="library" name="standard" level="project" />
+    <orderEntry type="library" name="fastjson-2.0.42" level="project" />
   </component>
 </module>
