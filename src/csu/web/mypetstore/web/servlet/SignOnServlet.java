@@ -1,8 +1,10 @@
 package csu.web.mypetstore.web.servlet;
 
 import csu.web.mypetstore.domain.Account;
+import csu.web.mypetstore.domain.CartItem;
 import csu.web.mypetstore.domain.Product;
 import csu.web.mypetstore.service.AccountService;
+import csu.web.mypetstore.service.CartService;
 import csu.web.mypetstore.service.CatalogService;
 
 import javax.servlet.ServletException;
@@ -35,12 +37,20 @@ public class SignOnServlet extends HttpServlet {
             Account loginAccount = accountService.getAccount(username, password);
             if(loginAccount == null){
                 this.msg = "用户名或密码错误";
-                //更改密码后不报错了
+                //更改密码后不报错了??
                 req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
             }else {
-                loginAccount.setPassword(null);//啥意思
                 HttpSession session = req.getSession();
                 session.setAttribute("loginAccount" , loginAccount);
+                CartService cart = new CartService();
+                String userid = loginAccount.getUsername();
+                List<CartItem> cartItemList = cart.getCartItemListByUserid(userid);
+                for (int i = 0; i < cartItemList.size(); i++){
+                    CartItem cartItem = cartItemList.get(i);
+                    cart. addItem1(cartItem);
+                }
+                session.setAttribute("cart", cart);
+                loginAccount.setPassword(null);//啥意思
 
                 if(loginAccount.isListOption()){
                     CatalogService catalogService = new CatalogService();

@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LineItemDaoImpl implements LineItemDao {
-    private static final String GETLINEITEMSBYORDERID = "SELECT ORDERID, LINENUM AS lineNumber, ITEMID, QUANTITY, UNITPRICE ,TOTAL FROM LINEITEM WHERE ORDERID = ?";
-    private static final String INSERTLINEITEM = "INSERT INTO LINEITEM (ORDERID, LINENUM, ITEMID, QUANTITY, UNITPRICE, TOTAL) VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String GETLINEITEMSBYORDERID = "SELECT ORDERID, LINENUM AS lineNumber, ITEMID, QUANTITY, UNITPRICEFROM LINEITEM WHERE ORDERID = ?";
+    private static final String INSERTLINEITEM = "INSERT INTO LINEITEM (ORDERID, LINENUM, ITEMID, QUANTITY, UNITPRICE) VALUES (?, ?, ?, ?, ?)";
 
     @Override
     public List<LineItem> getLineItemsByOrderId(int orderId) {
@@ -29,7 +29,6 @@ public class LineItemDaoImpl implements LineItemDao {
                 lineItem.setItemId(resultSet.getString(3));
                 lineItem.setQuantity(resultSet.getInt(4));
                 lineItem.setUnitPrice(resultSet.getBigDecimal(5));
-                lineItem.setTotal(resultSet.getBigDecimal(6));
                 lineItemList.add(lineItem);
             }
             DBUtil.closeResultSet(resultSet);
@@ -51,7 +50,6 @@ public class LineItemDaoImpl implements LineItemDao {
             preparedStatement.setString(3, lineItem.getItemId());
             preparedStatement.setInt(4, lineItem.getQuantity());
             preparedStatement.setBigDecimal(5, lineItem.getUnitPrice());
-            preparedStatement.setBigDecimal(6, lineItem.getTotal());
             preparedStatement.executeUpdate();
             DBUtil.closePreparedStatement(preparedStatement);
             DBUtil.closeConnection(connection);

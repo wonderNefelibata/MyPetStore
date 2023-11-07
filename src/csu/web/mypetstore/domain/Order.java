@@ -1,5 +1,6 @@
 package csu.web.mypetstore.domain;
 
+import csu.web.mypetstore.service.CartService;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -9,7 +10,6 @@ import java.util.List;
 
 public class Order implements Serializable {
     private static final long serialVersionUID = 6321792448424424931L;
-
     private int orderId;
     private String username;
     private Date orderDate;
@@ -254,11 +254,9 @@ public class Order implements Serializable {
         return lineItems;
     }
 
-    public void initOrder(Account account, Cart cart) {
-
+    public void initOrder(Account account, CartService cart) {
         username = account.getUsername();
         orderDate = new Date();
-
         shipToFirstName = account.getFirstName();
         shipToLastName = account.getLastName();
         shipAddress1 = account.getAddress1();

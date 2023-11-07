@@ -5,6 +5,7 @@ import csu.web.mypetstore.domain.Order;
 import csu.web.mypetstore.service.OrderService;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@WebServlet(name = "ListOrdersServlet", value = "/listOrders")
 public class ListOrdersServlet extends HttpServlet {
     private static final String LIST_ORDERS = "/WEB-INF/jsp/order/listOrders.jsp";
     private List<Order> orderList = new ArrayList<Order>();
@@ -26,17 +28,6 @@ public class ListOrdersServlet extends HttpServlet {
 
         orderList = orderService.getOrdersByUsername(account.getUsername());
         session.setAttribute("orderList",orderList);
-
-        if(account != null){
-            HttpServletRequest httpRequest= request;
-            String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-                    + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
-
-//            LogService logService = new LogService();
-//            String logInfo = logService.logInfo(" ") + strBackUrl + " 查看订单 " + orderList;
-//            logService.insertLogInfo(account.getUsername(), logInfo);
-        }
-
         request.getRequestDispatcher(LIST_ORDERS).forward(request,response);
     }
 

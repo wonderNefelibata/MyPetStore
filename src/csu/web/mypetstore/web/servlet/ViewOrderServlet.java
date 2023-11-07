@@ -5,12 +5,14 @@ import csu.web.mypetstore.domain.Order;
 import csu.web.mypetstore.service.OrderService;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+@WebServlet(name="ViewOrderServlet",value="/viewOrder")
 public class ViewOrderServlet extends HttpServlet {
 
     private static final String VIEW_ORDER = "/WEB-INF/jsp/order/viewOrder.jsp";
@@ -42,15 +44,6 @@ public class ViewOrderServlet extends HttpServlet {
 
         if(loginAccount.getUsername() != null && loginAccount.getUsername().equals(order.getUsername())){
 
-            if (loginAccount != null) {
-                // HttpServletRequest httpRequest= request;
-                String strBackUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
-                        + request.getContextPath() + request.getServletPath() + "?" + (request.getQueryString());
-
-//                LogService logService = new LogService();
-//                String logInfo = logService.logInfo(" ") + strBackUrl + " 查看订单 " + order.getOrderId();
-//                logService.insertLogInfo(account.getUsername(), logInfo);
-            }
             request.getRequestDispatcher(VIEW_ORDER).forward(request,response);
         }
         else {
@@ -61,3 +54,4 @@ public class ViewOrderServlet extends HttpServlet {
         }
     }
 }
+
