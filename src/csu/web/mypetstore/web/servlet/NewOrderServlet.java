@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-@WebServlet(name = "NewOrderServlet", value = "/newOrder")
+//@WebServlet(name = "NewOrderServlet", value = "/newOrder")
 public class NewOrderServlet extends HttpServlet {
     private static final String ERROR = "/WEB-INF/jsp/common/error.jsp";
     private static final String VIEW_ORDER = "/WEB-INF/jsp/order/viewOrder.jsp";
@@ -32,9 +32,9 @@ public class NewOrderServlet extends HttpServlet {
         HttpSession session = request.getSession();
         OrderService orderService = new OrderService();
         Order order = (Order) session.getAttribute("order");
-        getParameter(request,order);
+        getParameter(request,order);//把request中的订单的参数传到这个order对象中
         session.setAttribute("order",order);
-        orderService.insertOrder(order);
+        orderService.insertOrder(order);//把订单放进数据库
         CartService cart = (CartService) session.getAttribute("cart");
         workingItemId = (String) session.getAttribute("workingItemId");
         cart.clear();

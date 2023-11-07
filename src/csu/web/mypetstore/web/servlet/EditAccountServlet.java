@@ -18,7 +18,7 @@ public class EditAccountServlet extends HttpServlet {
     private static final String MAIN = "/WEB-INF/jsp/catalog/main.jsp";
     private static final String EDIT_ACCOUNT = "/WEB-INF/jsp/account/editAccount.jsp";
 
-    private Account account = new Account();
+    private Account account ;
     private String msg;
     private String username;
 
@@ -29,13 +29,16 @@ public class EditAccountServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.account = new Account();
+
         AccountService accountService = new AccountService();
         HttpSession session = request.getSession();
         account = (Account) session.getAttribute("loginAccount");
+        //为啥这样写呢，直接username = account.getUsername();不行吗
         account = accountService.getAccount(account.getUsername());
         username = account.getUsername();
 
-        this.account = new Account();
+//        this.account = new Account();
         account.setUsername(username);
         account.setPassword(request.getParameter("password"));
         account.setFirstName(request.getParameter("account.firstName"));
@@ -64,10 +67,11 @@ public class EditAccountServlet extends HttpServlet {
             account = accountService.getAccount(account.getUsername());
             CatalogService catalogService = new CatalogService();
             List<Product> myList = catalogService.getProductListByCategory(account.getFavouriteCategoryId());
-            session.setAttribute("account",account);
+            session.setAttribute("loginAccount",account);
             session.setAttribute("myList",myList);
 
-            response.sendRedirect("mainForm");
+            request.getRequestDispatcher(EDIT_ACCOUNT).forward(request,response);
+//            response.sendRedirect("mainForm");
         }
     }
 }

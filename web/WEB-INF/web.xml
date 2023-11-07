@@ -69,6 +69,11 @@
         <servlet-class>csu.web.mypetstore.web.servlet.SignOutFormServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>NewOrderServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.NewOrderServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>MainFormServlet</servlet-name>
         <url-pattern>/mainForm</url-pattern>
@@ -132,5 +137,10 @@
     <servlet-mapping>
         <servlet-name>SignOutFormServlet</servlet-name>
         <url-pattern>/signOutForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>NewOrderServlet</servlet-name>
+        <url-pattern>/newOrder</url-pattern>
     </servlet-mapping>
 </web-app>
