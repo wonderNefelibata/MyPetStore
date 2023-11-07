@@ -10,6 +10,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 
+/**
+ *
+ */
 @WebFilter("/*")
 public class LogFilter implements Filter {
     private LogService logService;
@@ -37,6 +40,12 @@ public class LogFilter implements Filter {
     public void destroy(){
     }
 
+    /**
+     * 判断执行的操作是什么
+     * @param servletPath
+     * @param queryString
+     * @return String
+     */
     private String getAction(String servletPath, String queryString) {
         if(servletPath.equals("/categoryForm")){
             return "浏览category:" + getValueAfterEquals(queryString);
@@ -52,6 +61,11 @@ public class LogFilter implements Filter {
         return null;
     }
 
+    /**
+     * 获取请求的的值
+     * @param input
+     * @return
+     */
     private String getValueAfterEquals(String input){
         int equalsIndex = input.indexOf("=");
         if(equalsIndex != -1 && equalsIndex < input.length() - 1){

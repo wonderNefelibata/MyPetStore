@@ -77,7 +77,7 @@
 <%--  <div id="Separator">&nbsp;</div>--%>
 <%--</div>--%>
 <div id="BackLink">
-  <a href="main">Return to Main Menu</a>
+  <a href="mainForm">Return to Main Menu</a>
 </div>
 
 <div id="Catalog">
