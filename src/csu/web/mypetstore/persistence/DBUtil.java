@@ -4,19 +4,14 @@ import java.sql.*;
 
 public class DBUtil{
 
-    //数据库驱动
     private static final String DRIVER ="com.mysql.cj.jdbc.Driver";
 
-    //数据库url
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/mypetstore";
+    private static final String URL = "jdbc:mysql://localhost:3306/mypetstore?useSSL=false";
 
-    //用户名
     private static final String USERNAME= "root";
 
-    //密码
     private static final String PASSWORD ="1234";
 
-    //获取connection连接
     public static Connection getConnection(){
         Connection connection=null;
         try {
@@ -28,7 +23,6 @@ public class DBUtil{
         return connection;
     }
 
-    //关闭连接
     public static void closeConnection (Connection connection){
         if(connection!=null){
             try {
@@ -39,7 +33,6 @@ public class DBUtil{
         }
     }
 
-
     public static void closeStatement(Statement statement){
         if(statement!= null){
             try{
@@ -49,7 +42,6 @@ public class DBUtil{
             }
         }
     }
-
 
     public static void closePreparedStatement(PreparedStatement preparedStatement){
         if(preparedStatement!= null){
@@ -70,8 +62,4 @@ public class DBUtil{
             }
         }
     }
-
-//    public static void main(String[] args) {
-//        System.out.println(getConnection());
-//    }
 }

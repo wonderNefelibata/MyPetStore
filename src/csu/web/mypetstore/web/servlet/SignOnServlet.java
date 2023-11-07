@@ -20,6 +20,8 @@ public class SignOnServlet extends HttpServlet {
 
     private String username;
     private String password;
+    private String captcha;
+    private String storeCaptcha;
 
     private String msg;
 
@@ -27,8 +29,10 @@ public class SignOnServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.username = req.getParameter("username");
         this.password = req.getParameter("password");
+        this.captcha = req.getParameter("captcha");
+        HttpSession session = req.getSession();
+        this.storeCaptcha = (String) session.getAttribute("captcha");
 
-        //校验用户输入的正确性
         if(!validate()){
             req.setAttribute("signOnMsg", this.msg);
             req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
@@ -40,7 +44,6 @@ public class SignOnServlet extends HttpServlet {
                 //更改密码后不报错了??
                 req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
             }else {
-                HttpSession session = req.getSession();
                 session.setAttribute("loginAccount" , loginAccount);
                 CartService cart = new CartService();
                 String userid = loginAccount.getUsername();
@@ -50,7 +53,7 @@ public class SignOnServlet extends HttpServlet {
                     cart. addItem1(cartItem);
                 }
                 session.setAttribute("cart", cart);
-                loginAccount.setPassword(null);//啥意思
+                loginAccount.setPassword(null);//?
 
                 if(loginAccount.isListOption()){
                     CatalogService catalogService = new CatalogService();
@@ -63,12 +66,16 @@ public class SignOnServlet extends HttpServlet {
     }
 
     private boolean validate(){
-        if(this.username == null || this.username.equals("")){
+        if(this.username == null || this.username.isEmpty()){
             this.msg = "用户名不能为空";
             return false;
         }
-        if(this.password == null || this.password.equals("")){
+        if(this.password == null || this.password.isEmpty()){
             this.msg = "密码不能为空";
+            return false;
+        }
+        if(this.captcha == null || !captcha.equalsIgnoreCase(storeCaptcha)){
+            this.msg = "验证码错误";
             return false;
         }
         return true;

@@ -11,7 +11,6 @@ public class AccountService {
         accountDao = new AccountDaoImpl();
     }
 
-    //    @Autowired
     public Account getAccount(String username) {
         return accountDao.getAccountByUsername(username);
     }
@@ -23,19 +22,17 @@ public class AccountService {
         return accountDao.getAccountByUsernameAndPassword(account);
     }
 
-    //    @Transactional
     public void insertAccount(Account account) {
         accountDao.insertAccount(account);
         accountDao.insertProfile(account);
         accountDao.insertSignon(account);
     }
 
-    //    @Transactional
     public void updateAccount(Account account) {
         accountDao.updateAccount(account);
         accountDao.updateProfile(account);
 
-        if (account.getPassword() != null && account.getPassword().length() > 0) {
+        if (account.getPassword() != null && !account.getPassword().isEmpty()) {
             accountDao.updateSignon(account);
         }
     }

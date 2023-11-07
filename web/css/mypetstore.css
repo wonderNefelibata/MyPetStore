@@ -287,9 +287,10 @@ body>#Banner {
     background-color: #005e21;
     text-decoration: none;
     font-family: helvetica, tahoma, arial, verdana, sans-serif;
-    font-size: 1.5ex;
+    font-size: 2.2ex;
     border-width:0;
 }
+
 #Catalog input[type="submit"]:hover {
     color: #000;
     background-color: #54c07a;

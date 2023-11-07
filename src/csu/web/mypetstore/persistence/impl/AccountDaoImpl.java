@@ -127,8 +127,6 @@ public class AccountDaoImpl implements AccountDao {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERTPROFILE);
             preparedStatement.setString(1,account.getLanguagePreference());
             preparedStatement.setString(2,account.getFavouriteCategoryId());
-//            preparedStatement.setBoolean(3,account.isListOption());
-//            preparedStatement.setBoolean(4,account.isBannerOption());
             preparedStatement.setInt(3,account.isListOption()==true?1:0);
             preparedStatement.setInt(4,account.isBannerOption()==true?1:0);
             preparedStatement.setString(5,account.getUsername());
