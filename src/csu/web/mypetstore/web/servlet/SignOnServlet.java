@@ -41,9 +41,12 @@ public class SignOnServlet extends HttpServlet {
             Account loginAccount = accountService.getAccount(username, password);
             if(loginAccount == null){
                 this.msg = "用户名或密码错误";
+                session.setAttribute("signOnMsg",msg);
                 //更改密码后不报错了??
                 req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
             }else {
+                this.msg = null;
+                session.setAttribute("signOnMsg",msg);
                 session.setAttribute("loginAccount" , loginAccount);
                 CartService cart = new CartService();
                 String userid = loginAccount.getUsername();

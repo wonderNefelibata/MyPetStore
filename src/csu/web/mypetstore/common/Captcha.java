@@ -20,6 +20,10 @@ public class Captcha {
 
     private Random r = new Random();
 
+    /**
+     * 随机颜色
+     * @return
+     */
     private Color randomColor(){
         int red = r.nextInt(150);
         int blue = r.nextInt(150);
