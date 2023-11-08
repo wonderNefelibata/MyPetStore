@@ -39,6 +39,7 @@ public class NewOrderFormServlet extends HttpServlet {
         orderList = null;
         session.setAttribute("order",order);
 
+        //如果没有登录转到登录
         if(loginAccount == null || loginAccount.getUsername() == null){
             request.getRequestDispatcher(SIGNON).forward(request,response);
         }

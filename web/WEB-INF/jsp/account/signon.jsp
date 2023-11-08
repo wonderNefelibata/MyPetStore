@@ -3,8 +3,8 @@
 <div id="Catalog">
   <form action="signOn" method="post">
     <p>Please enter your username and password.</p>
-    <c:if test="${requestScope.signOnMsg != null}">
-      <p> <font color="red">${requestScope.signOnMsg} </font> </p>
+    <c:if test="${sessionScope.signOnMsg != null}">
+      <p> <font color="red">${sessionScope.signOnMsg} </font> </p>
     </c:if>
     <p>
       Username:<input type="text" name="username"> <br />
