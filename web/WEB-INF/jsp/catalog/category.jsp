@@ -6,7 +6,6 @@
 
 <div id="Catalog">
 
-  <%--记得添加一个category对象--%>
   <h2>${sessionScope.category.name}</h2>
 
   <table>

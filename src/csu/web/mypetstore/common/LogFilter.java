@@ -1,4 +1,4 @@
-package csu.web.mypetstore.filter;
+package csu.web.mypetstore.common;
 
 import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.service.LogService;

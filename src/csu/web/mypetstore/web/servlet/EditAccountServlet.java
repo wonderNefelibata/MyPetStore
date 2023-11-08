@@ -64,10 +64,12 @@ public class EditAccountServlet extends HttpServlet {
             account = accountService.getAccount(account.getUsername());
             CatalogService catalogService = new CatalogService();
             List<Product> myList = catalogService.getProductListByCategory(account.getFavouriteCategoryId());
-            session.setAttribute("account",account);
+            session.setAttribute("loginAccount",account);
             session.setAttribute("myList",myList);
 
-            response.sendRedirect("mainForm");
+            msg = "Edit successfully!";
+            request.setAttribute("msg",msg);
+            request.getRequestDispatcher(EDIT_ACCOUNT).forward(request,response);
         }
     }
 }

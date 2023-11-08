@@ -20,8 +20,6 @@ public class EditAccountFormServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Account account = (Account)session.getAttribute("account");
-
         request.getRequestDispatcher(EDIT_ACCOUNT).forward(request,response);
 
     }
