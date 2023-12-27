@@ -322,3 +322,15 @@ body>#Banner {
     background-color:#ccc;
     text-align:left;
 }
+
+.okTips{
+    color: #54c07a;
+    font-family: Microsoft YaHei;
+    font-size: 15px;
+}
+
+.errorTips{
+    font-family: YouYuan;
+    font-size: 15px;
+    color:red;
+}
