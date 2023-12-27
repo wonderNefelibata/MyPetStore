@@ -105,7 +105,17 @@
                     <td>captcha:</td>
                     <td>
                         <input type="text" name="captcha">
-                        <img src="captcha" alt="captcha image"/>
+                        <img src="captcha" id="captchaImg" alt="captcha image"/>
+
+                        <script>
+                            document.getElementById('captchaImg').addEventListener('click', change_captcha_byImg);
+
+                            function change_captcha_byImg(){
+                                var captchaImage = document.querySelector("img#captchaImg");
+                                var randomParam = new Date().getTime();
+                                captchaImage.src = "captcha?random=" + randomParam;
+                            }
+                        </script>
                     </td>
                 </tr>
                 <tr>
@@ -168,6 +178,6 @@
     </form>
 
     already have a user?
-    <a href="signOnForm">Login</a>
+    <a href="signonForm">Login</a>
 </div>
 <%@ include file="../common/bottom.jsp"%>
