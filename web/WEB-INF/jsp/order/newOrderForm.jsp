@@ -1,20 +1,14 @@
 <%@ include file="../common/top.jsp"%>
-
-
 <div id="BackLink">
   <a href="mainForm">Return to Main Menu</a>
 </div>
-
+<script type="text/javascript" src="js/index.js"> </script>
 <div id="Catalog">
   <form action="newOrder" method="post">
     <table>
       <tr>
         <th colspan=2>Payment Details</th>
-<%--        <c:if test="${sessionScope.msg != null}">--%>
-<%--          <p> <font color="red">${sessionScope.msg} </font> </p>--%>
-<%--        </c:if>--%>
       </tr>
-
       <tr>
         <td>Card Type:</td>
         <td>
@@ -25,23 +19,20 @@
           </select>
         </td>
       </tr>
-
       <tr>
         <td>Card Number:</td>
-
         <td>
           <input type="text" name="order.creditCard" value = "${sessionScope.order.getCreditCard()}"/>
         </td>
       </tr>
-
       <tr>
         <td>Expiry Date (MM/YYYY):</td>
         <td><input type="text" name="order.expiryDate" value = "${sessionScope.order.getExpiryDate()}"/></td>
       </tr>
+
       <tr>
         <th colspan=2>Billing Address</th>
       </tr>
-
       <tr>
         <td>First name:</td>
         <td><input type="text" name="order.billToFirstName" value = "${sessionScope.loginAccount.firstName}"/></td>
@@ -74,10 +65,6 @@
         <td>Country:</td>
         <td><input type="text" size="15" name="order.billCountry" value="${sessionScope.loginAccount.country}"/></td>
       </tr>
-<%--      <tr>--%>
-<%--        <td colspan=2><input type="checkbox" name="shippingAddressRequired" value="true"/>--%>
-<%--          Ship to different address...</td>--%>
-<%--      </tr>--%>
     </table>
     <input type="submit" name="newOrder" value="Continue"/>
   </form>
