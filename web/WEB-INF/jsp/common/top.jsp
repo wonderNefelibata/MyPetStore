@@ -11,6 +11,8 @@
     <link rel="StyleSheet" href="css/mypetstore.css" type="text/css"
           media="screen" />
     <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -46,9 +48,21 @@
         <div id="SearchContent">
 
             <form action="searchProducts" method="post">
-                <input type="text" name="keyword" size="14">
+                <input type="text" name="keyword" size="14" id="keyword">
                 <input type="submit" name="searchProducts" value="Search">
             </form>
+
+            <div id="productAutoComplete">
+                <ul id="productAutoList">
+<%--                    <li class="productAutoItem">Amazon Parrot</li>--%>
+<%--                    <li class="productAutoItem">Amazon Parrot</li>--%>
+<%--                    <li class="productAutoItem">Amazon Parrot</li>--%>
+<%--                    <li class="productAutoItem">Amazon Parrot</li>--%>
+<%--                    <li class="productAutoItem">Amazon Parrot</li>--%>
+<%--                    <li class="productAutoItem">Amazon Parrot</li>--%>
+                </ul>
+            </div>
+
         </div>
     </div>
 

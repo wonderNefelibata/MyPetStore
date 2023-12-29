@@ -34,7 +34,6 @@ public class EditAccountServlet extends HttpServlet {
         AccountService accountService = new AccountService();
         HttpSession session = request.getSession();
         account = (Account) session.getAttribute("loginAccount");
-        //为啥这样写呢，直接username = account.getUsername();不行吗
         account = accountService.getAccount(account.getUsername());
         username = account.getUsername();
 
