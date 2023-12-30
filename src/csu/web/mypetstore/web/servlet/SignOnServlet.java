@@ -77,10 +77,10 @@ public class SignOnServlet extends HttpServlet {
             this.msg = "密码不能为空";
             return false;
         }
-        if(this.captcha == null || !captcha.equalsIgnoreCase(storeCaptcha)){
-            this.msg = "验证码错误";
-            return false;
-        }
+//        if(this.captcha == null || !captcha.equalsIgnoreCase(storeCaptcha)){
+//            this.msg = "验证码错误";
+//            return false;
+//        }
         return true;
     }
 }

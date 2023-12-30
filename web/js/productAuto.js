@@ -1,4 +1,3 @@
-
 $(function (){
     $('#keyword').on('keyup',function (){
         var keyword=$(this).val();

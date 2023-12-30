@@ -17,9 +17,9 @@
       <br/>
     </div>
     </p>
-    <input  type="submit" value="Login">
+    <button type="submit">Login</button>
 <%--    <input type="button" onclick="change_captcha()" value="change captcha">--%>
-    <button id="refreshCaptchaButton">chat captcha</button>
+    <button type="button" id="refreshCaptchaButton">chat captcha</button>
 
     <script>
       document.getElementById('refreshCaptchaButton').addEventListener('click', change_captcha);

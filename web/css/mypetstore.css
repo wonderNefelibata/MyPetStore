@@ -354,3 +354,41 @@ body>#Banner {
 .productAutoItem:hover{
     background-color: #54c07a;
 }
+
+.okTips{
+    color: #54c07a;
+    font-family: Microsoft YaHei;
+    font-size: 15px;
+}
+
+.errorTips{
+    font-family: YouYuan;
+    font-size: 15px;
+    color:red;
+}
+
+.button{
+    width: 80px;
+    line-height: 30px;
+    font-size: 11px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 6px;
+    border: 3px solid #e2e2e2;
+    cursor: pointer;
+    background-color: #fff;
+    outline:none;
+}
+
+button{
+    width: 80px;
+    line-height: 30px;
+    font-size: 11px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 6px;
+    border: 3px solid #e2e2e2;
+    cursor: pointer;
+    background-color: #fff;
+    outline:none;
+}

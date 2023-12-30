@@ -46,7 +46,7 @@
 
             <td id="${cartItem.item.itemId}" class="td"><fmt:formatNumber value="${cartItem.total}" pattern="$#,##0.00" /></td>
             <td>
-              <a href="removeCartItem?workingItemId=${cartItem.item.itemId}" class="Button">Remove</a>
+              <a href="removeCartItem?workingItemId=${cartItem.item.itemId}" class="button">Remove</a>
             </td>
           </tr>
         </c:forEach>
@@ -60,7 +60,7 @@
       </table>
     </form>
     <c:if test="${sessionScope.cart.numberOfItems > 0}">
-      <a href="newOrderForm" class="Button" id="button1">make new order</a>
+      <a href="newOrderForm" class="button" id="button1">make new order</a>
     </c:if>
   </div>
 

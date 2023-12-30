@@ -15,6 +15,7 @@
                     type: "GET",
                     url: "UsernameExist?username=" + this.value,
                     success: function (data) {
+                        console.log(data.code);
                         if (data.code == 1)
                             $('#usernameTip').attr("class", "errorTips").text("username already exist");
                         else if (data.code == 0)
@@ -32,42 +33,42 @@
             if(this.value.trim() == '')
                 $('#passwordTip').attr("class","errorTips").text("password can't be empty");
             else if(!reP.test(this.value))
-                $('#passwordTip').attr("class","errorTips").text("illegal password");
+                $('#passwordTip').attr("class","errorTips").text("password too short");
             else
                 $('#passwordTip').attr("class","okTips").text("Available");
         })
 
-//3.判断两次输入密码一致性
-        $('#repeatedPassword').on('blur',function (){
-            if(this.value.trim() == '')
-                $('#repeatedPasswordTip').attr("class","errorTips").text("repeted password can't be empty");
-            else if(!($('#password').val() == this.value))
-                $('#repeatedPasswordTip').attr("class","errorTips").text("passwords should be same");
-            else
-                $('#repeatedPasswordTip').attr("class","okTips").text("Available");
-        })
-
-//4.邮箱合法性判断
-        var reE =  /^[a-z0-9][\w\.\-]*@[a-z0-9\-]+(\.[a-z]{2,5}){1,2}$/
-        $('#email').on('blur',function () {
-            if(this.value.trim() == '')
-                $('#emailTip').text('');
-            else if(!reE.test(this.value))
-                $('#emailTip').attr("class","errorTips").text("illegal email");
-            else
-                $('#emailTip').attr("class","okTips").text("Available");
-        })
-
-//5.电话合法性验证
-        var rePh = /^\d{11}$/
-        $('#phone').on('blur',function () {
-            if(this.value.trim() == '')
-                $('#phoneTip').text('');
-            else if(!rePh.test(this.value))
-                $('#phoneTip').attr("class","errorTips").text("illegal number");
-            else
-                $('#phoneTip').attr("class","okTips").text("Available");
-        })
+// //3.判断两次输入密码一致性
+//         $('#repeatedPassword').on('blur',function (){
+//             if(this.value.trim() == '')
+//                 $('#repeatedPasswordTip').attr("class","errorTips").text("repeted password can't be empty");
+//             else if(!($('#password').val() == this.value))
+//                 $('#repeatedPasswordTip').attr("class","errorTips").text("passwords should be same");
+//             else
+//                 $('#repeatedPasswordTip').attr("class","okTips").text("Available");
+//         })
+//
+// //4.邮箱合法性判断
+//         var reE =  /^[a-z0-9][\w\.\-]*@[a-z0-9\-]+(\.[a-z]{2,5}){1,2}$/
+//         $('#email').on('blur',function () {
+//             if(this.value.trim() == '')
+//                 $('#emailTip').text('');
+//             else if(!reE.test(this.value))
+//                 $('#emailTip').attr("class","errorTips").text("illegal email");
+//             else
+//                 $('#emailTip').attr("class","okTips").text("Available");
+//         })
+//
+// //5.电话合法性验证
+//         var rePh = /^\d{11}$/
+//         $('#phone').on('blur',function () {
+//             if(this.value.trim() == '')
+//                 $('#phoneTip').text('');
+//             else if(!rePh.test(this.value))
+//                 $('#phoneTip').attr("class","errorTips").text("illegal number");
+//             else
+//                 $('#phoneTip').attr("class","okTips").text("Available");
+//         })
     });
 </script>
 
@@ -173,7 +174,7 @@
             <c:if test="${requestScope.registerMsg != null}">
                 <p><font color="red">${requestScope.registerMsg} </font></p>
             </c:if>
-            <input type="submit" value="signUp">
+            <button type="submit">sign up</button>
         </div>
     </form>
 
