@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <title>MyPetStore</title>
     <link rel="StyleSheet" href="css/mypetstore.css" type="text/css" media="screen"/>
+    <link rel="StyleSheet" href="css/index.css" type="text/css" media="screen"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
 </head>
 <body>
 
 <style>
     body {
         background-color: rgb(119, 115, 110);
+        height: 400px;
     }
 
     ul {
@@ -33,105 +42,132 @@
         left: 0;
         transition: 0.4s;
     }
+
+    h1{
+        font-size: 4rem;
+    }
+
 </style>
 
 <div id="Content">
-    <h2>Welcome to JPetStore 6</h2>
-
+    <h1>Welcome to JPetStore 6</h1>
     <p><a href="mainForm">Enter the Store</a></p>
-
-<!--    <ul id="imgs"></ul>-->
-
-<!--    <script>-->
-<!--        var imgs = document.getElementById("imgs");-->
-<!--        var arr = [];-->
-
-<!--        //left arrow-->
-<!--        var pre_img = document.createElement('img')-->
-<!--        pre_img.src = 'images/left_arrow.png';-->
-<!--        pre_img.style.position = 'absolute';-->
-<!--        pre_img.style.top = 0;-->
-<!--        pre_img.style.bottom = 0;-->
-<!--        pre_img.style.left = 0;-->
-<!--        pre_img.style.margin = 'auto';-->
-<!--        pre_img.style.zIndex = 100;-->
-<!--        imgs.appendChild(pre_img);-->
-
-<!--        function get_next(){-->
-<!--            var give_up = arr[arr.length - 1];-->
-<!--            arr.pop();-->
-<!--            arr.unshift(give_up);-->
-<!--            for(var i=0;i<arr.length;i++){-->
-<!--                arr[i].style.zIndex = i;-->
-<!--                arr[i].style.transform = 'scale(1)';-->
-<!--            }-->
-
-<!--            arr[len - 2].style.left = '20px';-->
-<!--            arr[len - 1].style.left = '220px';-->
-<!--            arr[len].style.left = '420px';-->
-<!--            arr[len - 1].style.transform = 'scale(1.3)'-->
-<!--            arr[len - 1].style.zIndex = 100;-->
-<!--        }-->
-<!--        var timer = setInterval(get_next,2000);-->
-<!--        for(var i = 1;i<=5;i++) {-->
-<!--            var li = document.createElement("li");-->
-<!--            var img = document.createElement("img");-->
-<!--            img.src = 'images/' + i + ".jpg";-->
-<!--            img.style.length = '500px';-->
-<!--            img.style.width = '360px';-->
-<!--            imgs.onmouseleave = function(){-->
-<!--                timer = setInterval(get_next,2000);-->
-<!--            };-->
-<!--            imgs.onmouseenter = function(){-->
-<!--                clearInterval(timer);-->
-<!--            }-->
-<!--            li.appendChild(img);-->
-<!--            imgs.appendChild(li);-->
-<!--            arr.push(li);-->
-<!--        }-->
-<!--        var len = arr.length - 1;-->
-<!--        arr[len - 2].style.left = '20px';-->
-<!--        arr[len - 1].style.left = '220px';-->
-<!--        arr[len].style.left = '420px';-->
-<!--        arr[len - 1].style.transform = 'scale(1.3)';-->
-<!--        arr[len - 1].style.zIndex = 100;-->
-
-<!--        var next_img = document.createElement('img')-->
-<!--        next_img.src = 'images/right_arrow.png';-->
-<!--        next_img.style.position = 'absolute';-->
-<!--        next_img.style.top = 0;-->
-<!--        next_img.style.bottom = 0;-->
-<!--        next_img.style.right = 0;-->
-<!--        next_img.style.margin = 'auto';-->
-<!--        next_img.style.zIndex = 100;-->
-<!--        imgs.appendChild(next_img);-->
-
-<!--        function get_pre(){-->
-<!--            let give_up = arr[0];-->
-<!--            arr.shift();-->
-<!--            arr.push(give_up);-->
-<!--            for(let i = 0;i < arr.length;i++){-->
-<!--                arr[i].style.zIndex = i;-->
-<!--                arr[i].style.transform = 'scale(1)';-->
-<!--            }-->
-<!--            arr[len - 2].style.left = '20px';-->
-<!--            arr[len - 1].style.left = '220px';-->
-<!--            arr[len].style.left = '420px';-->
-<!--            arr[len - 1].style.transform = 'scale(1.3)';-->
-<!--            arr[len - 1].style.zIndex = 100;-->
-<!--        }-->
-
-<!--        pre_img.onclick = function(){-->
-<!--            get_pre();-->
-<!--        }-->
-
-<!--        next_img.onclick = function(){-->
-<!--            get_next();-->
-<!--        }-->
-<!--    </script>-->
 </div>
 
-<p><sub>Copyright  Central South University.</sub></p>
+<p><a href="https://www.csu.edu.cn">Copyright  Central South University.</a></p>
+
+<div class="wrap">
+    <ul class="list">
+
+        <li class="item active"><img src="images/indexcat2.jpg" sizes="800px,400px"></li>
+        <li class="item"><img src="images/indexdog2.jpg"></li>
+        <li class="item"><img src="images/indexbird1.jpg"></li>
+        <li class="item"><img src="images/indexcat3.jpg"></li>
+        <li class="item"><img src="images/indexdog3.jpg"></li>
+
+        <!--    <li class="item">1</li>-->
+        <!--    <li class="item">2</li>-->
+        <!--    <li class="item">3</li>-->
+        <!--    <li class="item">4</li>-->
+    </ul>
+    <ul class="pointList">
+        <li class="point active" data-index = 0></li>
+        <li class="point" data-index = 1></li>
+        <li class="point" data-index = 2></li>
+        <li class="point" data-index = 3></li>
+        <li class="point" data-index = 4></li>
+    </ul>
+    <button class="btn" id="leftBtn"> < </button>
+    <button class="btn" id="rightBtn"> > </button>
+
+</div>
+<script>
+    var items = document.querySelectorAll(".item");//图片
+    var points = document.querySelectorAll(".point")//点
+    var left = document.getElementById("leftBtn");
+    var right = document.getElementById("rightBtn");
+    var all = document.querySelector(".wrap")
+    var index = 0;
+    var time = 0;//定时器跳转参数初始化
+
+
+    //清除active方法
+    var clearActive = function () {
+        for (i = 0; i < items.length; i++) {
+            items[i].className = 'item';
+        }
+        for (j = 0; j < points.length; j++) {
+            points[j].className = 'point';
+        }
+    }
+
+    //改变active方法
+    var goIndex = function () {
+        clearActive();
+        items[index].className = 'item active';
+        points[index].className = 'point active'
+    }
+    //左按钮事件
+    var goLeft = function () {
+        if (index == 0) {
+            index = 4;
+        } else {
+            index--;
+        }
+        goIndex();
+    }
+
+    //右按钮事件
+    var goRight = function () {
+        if (index < 4) {
+            index++;
+        } else {
+            index = 0;
+        }
+        goIndex();
+    }
+
+
+    //绑定点击事件监听
+    left.addEventListener('click', function () {
+        goLeft();
+        time = 0;//计时器跳转清零
+    })
+
+    right.addEventListener('click', function () {
+        goRight();
+        time = 0;//计时器跳转清零
+    })
+
+    for(i = 0;i < points.length;i++){
+        points[i].addEventListener('click',function(){
+            var pointIndex = this.getAttribute('data-index')
+            index = pointIndex;
+            goIndex();
+            time = 0;//计时器跳转清零
+        })
+    }
+    //计时器
+    var timer;
+    function play(){
+        timer = setInterval(() => {
+            time ++;
+            if(time == 20 ){
+                goRight();
+                time = 0;
+            }
+        },100)
+    }
+    play();
+    //移入清除计时器
+    all.onmousemove = function(){
+        clearInterval(timer)
+    }
+    //移出启动计时器
+    all.onmouseleave = function(){
+        play();
+    }
+</script>
 
 </body>
 </html>

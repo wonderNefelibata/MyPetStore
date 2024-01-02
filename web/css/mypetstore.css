@@ -85,6 +85,7 @@ a, a:visited, a:link {
 
     text-decoration: none;
     font-family: helvetica, tahoma, arial, verdana, sans-serif;
+    font-size: 28px;
 }
 
 a:hover {
@@ -244,7 +245,10 @@ body>#Banner {
     color: #333;
     background-color: #FFF;
     border-width: 0;
+    /*height: 200px;*/
 }
+
+
 
 #Separator {
     clear:both;
@@ -273,6 +277,9 @@ body>#Banner {
     background:inherit;
     text-align:center;
     width: 50%;
+    position: absolute;
+    top: 299px;
+    left: 374px;
 }
 
 #Catalog {
@@ -391,4 +398,8 @@ button{
     cursor: pointer;
     background-color: #fff;
     outline:none;
+}
+
+.main {
+
 }
